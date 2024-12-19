@@ -6,7 +6,7 @@ load_dotenv()
 
 class Settings(BaseSettings):
     # MongoDB Settings
-    MONGO_URL: str = os.getenv("MONGO_URL", "mongodb+srv://eshan:yprexsHcK7ejG2yY@atlascluster.sqtnfv7.mongodb.net")
+    MONGO_URL: str = os.getenv("MONGO_URL", "mongodb+srv://Anushka:e1daUI2XWSFovIYl@cluster0.u44yf.mongodb.net")
     DB_NAME: str = os.getenv("DB_NAME", "healthsync")
 
     # SMTP Settings

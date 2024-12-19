@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: [ appointment_service, notification_service, patient_service ,analytics_service,doctor_service]
+        service: [ appointment_service, notification_service, patient_service ,doctor_service]
         include:
           - service: appointment_service
             port: 8003
@@ -29,10 +29,6 @@ jobs:
           - service: patient_service
             port: 8001
             image_name: patient-service
-
-          - service: analytics_service
-            port: 8004
-            image_name: analytics-service
 
           - service: doctor_service
             port: 8002
@@ -94,7 +90,7 @@ jobs:
           docker push gcr.io/$PROJECT_ID/aggregator_service:$GITHUB_SHA
 
           # Replace 'latest' tag with GITHUB_SHA in CronJob YAML
-          sed -i "s|gcr.io/healthsync-445122/aggregator_service:latest|gcr.io/$PROJECT_ID/aggregator_service:$GITHUB_SHA|" \
+          sed -i "s|gcr.io/healthsync-445218/aggregator_service:latest|gcr.io/$PROJECT_ID/aggregator_service:$GITHUB_SHA|" \
             kubernetes/aggregator_service/cronjob.yaml
 
           # Apply CronJob to GKE
